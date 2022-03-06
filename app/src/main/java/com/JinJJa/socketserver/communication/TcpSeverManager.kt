@@ -7,13 +7,13 @@ import java.lang.Exception
 import java.net.ServerSocket
 
 class TcpSeverManager {
-    val port = 55555
     inner class TcpServerThread : Thread(){
         override fun run() {
             try {
-                var serverSocket = ServerSocket(port)
+                var serverSocket = ServerSocket(54321)
+                Log.d("test1", "서버소켓 생성")
                 while (true){
-                    var socket = serverSocket.accept()
+                    var socket = serverSocket!!.accept()
                     Log.d("test1", "socket연결 ${socket}")
 
                     var clientInput = socket.getInputStream()
